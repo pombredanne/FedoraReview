@@ -1,6 +1,6 @@
 Name:       fedora-review
 Version:    0.3.1
-Release:    1%{?dist}
+Release:    2%{?dist}
 Summary:    Review tool for fedora rpm packages
 
 License:    GPLv2+
@@ -59,6 +59,8 @@ chmod -x api/examples/*
 
 ln -s %{_datadir}/%{name}/plugins \
       %{buildroot}%{python_sitelib}/FedoraReview/plugins
+ln -s %{_datadir}/%{name}/scripts \
+      %{buildroot}%{python_sitelib}/FedoraReview/scripts
 
 %files
 %doc COPYING AUTHORS TODO README api
@@ -73,6 +75,9 @@ ln -s %{_datadir}/%{name}/plugins \
 %{_datadir}/%{name}/scripts
 
 %changelog
+* Thu Oct 25 2012 Stanislav Ochotnicky <sochotnicky@redhat.com> - 0.3.1-2
+- Add symlink to scripts directory so they are loaded
+
 * Tue Sep 25 2012 Stanislav Ochotnicky <sochotnicky@redhat.com> - 0.3.1-1
 - Update to lastest upstream (0.3.1)
 - Fix loading of system-wide plugins
